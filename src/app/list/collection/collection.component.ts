@@ -10,6 +10,8 @@ export class CollectionComponent implements OnInit {
   imageUrl = "https://cdn.pixabay.com/photo/2017/12/29/18/47/nature-3048299__340.jpg";
   clicked = 0;
 
+  keyboardInput: string = "";
+
   constructor() { }
 
   ngOnInit() {
@@ -19,4 +21,8 @@ export class CollectionComponent implements OnInit {
     this.clicked++;
   }
 
+  inputKeyboard(event: any){
+    console.log(event);
+    this.keyboardInput = event.target.value;
+  }
 }

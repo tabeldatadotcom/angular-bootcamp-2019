@@ -10,3 +10,9 @@
   Jumlah di click {{clicked}}x
   <button (click)="handleWithClick()" >Klik saya</button>
 </div>
+
+<h3>Event input</h3>
+<div>
+  <input type="text" (input)="inputKeyboard($event)">
+  data yang di input {{ keyboardInput }}
+</div>
