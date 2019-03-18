@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <td>Nama</td>
+            <td>Alamat</td>
+            <td>Umur</td>
+            <td>Aktif</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of list">
+            <td>{{data._nama}}</td>
+            <td>{{data.alamat}}</td>
+            <td>{{data.umur}}</td>
+            <td>{{data.aktif}}</td>
+        </tr>
+    </tbody>
+</table>
