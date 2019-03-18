@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'belajar-angular';
+  title: string = 'Belajar Angular6';
+
+  listMakanan: Array<string> = ['Pitza', 'Rendang'];
 }
