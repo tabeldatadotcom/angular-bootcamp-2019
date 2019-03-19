@@ -7,6 +7,27 @@
     <label for="nama">nama</label>
     <input type="text" name="nama" id="nama" formControlName="nama">
   </div>
+  <dir formGroupName="alamat">
+    <div>
+      <label for="kota">Kota/kabupaten</label>
+      <select id="kota" name="kota" formControlName="kota">
+        <option value="jakarta">DKI Jakarta</option>
+        <option value="bandung">Bandung</option>
+        <option value="jogja">Yogyakarta</option>
+      </select>
+    </div>
+    <div>
+      <label for="alamatRt">RT</label>
+      <input type="number" name="alamatRt" id="alamatRt" formControlName="rt">
+    </div>
+    <div>
+      <label for="alamatRw">RW</label>
+      <input type="number" name="alamatRw" id="alamatRw" formControlName="rw">
+    </div>
+    <div>
+      <textarea name="alamatJalan" id="alamatJalan" cols="30" rows="10" formControlName="jalan"></textarea>
+    </div>
+  </dir>
   <div>
     <button type="submit">Kirim</button>
     <button type="reset">Kembali</button>

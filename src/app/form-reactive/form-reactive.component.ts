@@ -15,7 +15,13 @@ export class FormReactiveComponent implements OnInit {
   ngOnInit() {
     this.formGroup = new FormGroup({
       'id': new FormControl(),
-      'nama': new FormControl()
+      'nama': new FormControl(),
+      'alamat': new FormGroup({
+        'kota': new FormControl(),
+        'rt': new FormControl(),
+        'rw': new FormControl(),
+        'jalan': new FormControl()
+      })
     });
   }
 
