@@ -17,7 +17,7 @@ export class PembelianComponent implements OnInit {
       customer: this.formBuilder.group({
         id: this.formBuilder.control('', [Validators.required])
       }),
-      items: this.formBuilder.array([])
+      items: this.formBuilder.array([], [Validators.required])
     });
   }
 

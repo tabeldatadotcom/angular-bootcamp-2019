@@ -58,6 +58,9 @@
         </tr>
       </tbody>
     </table>
+    <span *ngIf="!formGroup.controls.items.valid && formGroup.controls.items.errors != null">
+        <div *ngIf="formGroup.controls.items.errors.required">Minimum 1 order</div>
+    </span>
   </div>
   <hr>
   <div>
