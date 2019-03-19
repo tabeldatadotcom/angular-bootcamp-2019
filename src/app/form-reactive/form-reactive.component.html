@@ -30,14 +30,17 @@
   </div>
   <div formArrayName="hobi">
     <button type="button" (click)="addHobi()">Tambah</button>
-    <div *ngFor="let alamat of hobi.controls; let i=index">      
-        <label for="id">Hoby ke {{i}}</label>
-        <input type="text" name="hoby" id="hoby" [formControlName]="i">
-        <button type="button" (click)="removeHoby(i)">x</button>
+    <div *ngFor="let alamat of hobi.controls; let i=index">
+      <div [formGroupName]="i">
+        <h4>Hoby ke {{i}}</h4>
+        <div>
+            <input type="text" name="hoby" formControlName="id">
+          <input type="text" name="hoby" formControlName="nama">
+        </div>
       </div>
-    <div>
-    
+    </div>
   </div>
+  <div>
     <button type="submit">Kirim</button>
     <button type="reset">Kembali</button>
   </div>

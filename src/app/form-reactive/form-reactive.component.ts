@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-form-reactive',
@@ -22,25 +23,27 @@ export class FormReactiveComponent implements OnInit {
         'rw': this.formBuilder.control(''),
         'jalan': this.formBuilder.control('')
       }),
-      'hobi': this.formBuilder.array([
-       this.formBuilder.control('')
-      ])
+      'hobi': this.formBuilder.array([])
     });
   }
 
-  addHobi(){
-    this.hobi.push(this.formBuilder.control(''));
+  addHobi() {
+    let group = this.formBuilder.group({
+      id: this.formBuilder.control(''),
+      nama: this.formBuilder.control('')
+    })
+    this.hobi.push(group);
   }
 
-  removeHoby(index: number){
+  removeHoby(index: number) {
     this.hobi.removeAt(index);
   }
 
-  get hobi() : FormArray{
+  get hobi(): FormArray {
     return this.formGroup.get('hobi') as FormArray;
   }
 
-  handler(event: any){
+  handler(event: any) {
     console.log(this.formGroup.value);
   }
 
