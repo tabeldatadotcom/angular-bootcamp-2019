@@ -32,6 +32,10 @@ export class FormReactiveComponent implements OnInit {
     this.hobi.push(this.formBuilder.control(''));
   }
 
+  removeHoby(index: number){
+    this.hobi.removeAt(index);
+  }
+
   get hobi() : FormArray{
     return this.formGroup.get('hobi') as FormArray;
   }

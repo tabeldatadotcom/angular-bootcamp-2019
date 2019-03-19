@@ -33,6 +33,7 @@
     <div *ngFor="let alamat of hobi.controls; let i=index">      
         <label for="id">Hoby ke {{i}}</label>
         <input type="text" name="hoby" id="hoby" [formControlName]="i">
+        <button type="button" (click)="removeHoby(i)">x</button>
       </div>
     <div>
     
