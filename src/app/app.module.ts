@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { CollectionComponent } from './list/collection/collection.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
+import { PembelianComponent } from './transaksi/pembelian/pembelian.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     CollectionComponent,
-    FormReactiveComponent
+    FormReactiveComponent,
+    PembelianComponent
   ],
   imports: [
     BrowserModule,
