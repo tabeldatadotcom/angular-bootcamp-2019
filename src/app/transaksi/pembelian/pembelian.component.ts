@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pembelian',
@@ -15,29 +15,37 @@ export class PembelianComponent implements OnInit {
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
-        id: this.formBuilder.control('')
+        id: this.formBuilder.control('', [Validators.required])
       }),
       items: this.formBuilder.array([])
     });
   }
 
-  addItems(){
+  addItems() {
     let item = this.formBuilder.group({
-      item : this.formBuilder.group({
-        id: this.formBuilder.control('')
+      item: this.formBuilder.group({
+        id: this.formBuilder.control('', [
+          Validators.required
+        ])
       }),
-      qty: this.formBuilder.control(0),
-      price: this.formBuilder.control(0)
+      qty: this.formBuilder.control(0, [
+        Validators.required,
+        Validators.min(1)
+      ]),
+      price: this.formBuilder.control(0, [
+        Validators.required,
+        Validators.min(0)
+      ])
     })
     this.items.push(item);
   }
 
-  get items(): FormArray{
+  get items(): FormArray {
     return this.formGroup.get('items') as FormArray;
   }
 
-  submited(){
-    console.log(this.formGroup.value);
+  submited() {
+    console.log(this.formGroup);
   }
 
 }

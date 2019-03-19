@@ -1,16 +1,19 @@
 <form [formGroup]="formGroup" (submit)="submited()">
   <div formGroupName="customer">
     <label for="customer">Customer Name</label>
-    <select name="customeName" formControlName="id">
+    <select name="customeName" formControlName="id" required>
       <option value="001">Dimas Maryanto</option>
       <option value="002">Muhamad Yusuf</option>
       <option value="003">Haris</option>
       <option value="004">Hari sapto adi</option>
       <option value="005">Rega</option>
     </select>
+    <span *ngIf="!formGroup.controls.customer.valid">
+        <div *ngIf="formGroup.controls.customer.controls.id.errors.required">Customer is required</div>
+    </span>
   </div>
   <div>
-    <button (click)="addItems()">Add Item</button>
+    <button type="button" (click)="addItems()">Add Item</button>
   </div>
   <div formArrayName="items">
     <table>
@@ -31,17 +34,34 @@
               <option value="003">Dell xps 15</option>
               <option value="004">Asus ROG</option>
             </select>
+            <span *ngIf="!formGroup.controls.items.controls[i].controls.item.controls.id.valid">
+                <div *ngIf="formGroup.controls.items.controls[i].controls.item.controls.id.errors.required">Product must be selected</div>
+            </span>
           </td>
-          <td><input #fieldQty type="number" name="qty" id="qty" formControlName="qty"></td>
-          <td><input #fieldPrice type="number" name="price" formControlName="price"></td>
-          <td><input type="text" name="price" readonly [value]="fieldQty.value * fieldPrice.value"></td>
+          <td>
+            <input #fieldQty type="number" name="qty" id="qty" formControlName="qty">
+            <span *ngIf="!formGroup.controls.items.controls[i].controls.qty.valid">
+                <div *ngIf="formGroup.controls.items.controls[i].controls.qty.errors.required">Qty is required</div>
+                <div *ngIf="formGroup.controls.items.controls[i].controls.qty.errors.min">Qty must be bigger then 1</div>
+            </span>
+          </td>
+          <td>
+            <input #fieldPrice type="number" name="price" formControlName="price">
+            <span *ngIf="!formGroup.controls.items.controls[i].controls.price.valid">
+                <div *ngIf="formGroup.controls.items.controls[i].controls.price.errors.required">Qty is required</div>
+                <div *ngIf="formGroup.controls.items.controls[i].controls.price.errors.min">Qty must be bigger then 0</div>
+            </span>
+          </td>
+          <td>
+            <input type="text" name="price" readonly [value]="fieldQty.value * fieldPrice.value">
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
   <hr>
   <div>
-    <button type="submit">Send</button>
+    <button type="submit" [disabled]="!formGroup.valid">Send</button>
     <button type="reset">Kembali</button>
   </div>
 </form>
