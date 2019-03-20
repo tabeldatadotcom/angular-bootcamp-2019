@@ -4,17 +4,19 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
-import { CollectionComponent } from './list/collection/collection.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import { PembelianComponent } from './transaksi/pembelian/pembelian.component';
+import { CellComponent } from './list/cell/cell.component';
+import { DetailComponent } from './list/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    CollectionComponent,
     FormReactiveComponent,
-    PembelianComponent
+    PembelianComponent,
+    CellComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
