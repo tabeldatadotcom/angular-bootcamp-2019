@@ -9,7 +9,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let data of list">
-            <app-cell [dataPribadi]="data" (clicked)="clickedHandler($event)"></app-cell>
+            <app-cell [dataPribadi]="data" [jabatan]="jabatan" (clicked2)="clickedHandler2($event)" (clicked)="clickedHandler($event)"></app-cell>
         </tr>
     </tbody>
 </table>

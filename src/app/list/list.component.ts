@@ -9,6 +9,7 @@ import { ValueTransformer } from "@angular/compiler/src/util";
 export class ListComponent {
 
     counterClick: number = 0;
+    jabatan: string = "Trainier"
 
     constructor(){
         let value = new Data();
@@ -31,5 +32,9 @@ export class ListComponent {
     clickedHandler(event: any){
         this.counterClick++;
         console.log(event);
+    }
+
+    clickedHandler2(event:any){
+        console.log(event.data);
     }
 }

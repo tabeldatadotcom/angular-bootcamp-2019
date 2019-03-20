@@ -9,7 +9,9 @@ import { Model } from '../list.model';
 export class CellComponent implements OnInit {
 
   @Input() dataPribadi: Model;
+  @Input() jabatan: string;
   @Output() clicked = new EventEmitter<string>();
+  @Output() clicked2 = new EventEmitter<string>();
 
   constructor() { }
 
@@ -18,6 +20,10 @@ export class CellComponent implements OnInit {
 
   handle(){
     this.clicked.emit(this.dataPribadi._nama);
+  }
+
+  handle2(event){
+    this.clicked2.emit(event);
   }
 
 }

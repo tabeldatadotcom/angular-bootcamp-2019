@@ -1,7 +1,8 @@
 <td>
     {{dataPribadi._nama}} 
+    {{jabatan}}
     <button type="button" (click)="handle()">x</button>
-
+    <input type="text" name="nama" id="nama" (input)="handle2($event)">
 </td>
 <td>{{dataPribadi.alamat}}</td>
 <td>{{dataPribadi.umur}}</td>
