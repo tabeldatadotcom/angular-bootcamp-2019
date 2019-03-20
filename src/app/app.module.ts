@@ -14,11 +14,13 @@ import { DataMahasiswaService } from './sample-service/data-mahasiswa.service';
 import { SampleServiceComponent } from './sample-service/sample-service.component';
 
 const appRoutes: Routes = [
-  { path: 'form', 
-    component: FormReactiveComponent 
+  {
+    path: 'form',
+    component: FormReactiveComponent
   },
-  { path: 'list',  
-      component: ListComponent 
+  {
+    path: 'list',
+    component: ListComponent
   },
   {
     path: 'sample-service',
