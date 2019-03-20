@@ -7,7 +7,6 @@ import { ListComponent } from './list/list.component';
 import { FormReactiveComponent } from './form-reactive/form-reactive.component';
 import { PembelianComponent } from './transaksi/pembelian/pembelian.component';
 import { CellComponent } from './list/cell/cell.component';
-import { DetailComponent } from './list/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { DetailComponent } from './list/detail/detail.component';
     ListComponent,
     FormReactiveComponent,
     PembelianComponent,
-    CellComponent,
-    DetailComponent
+    CellComponent
   ],
   imports: [
     BrowserModule,

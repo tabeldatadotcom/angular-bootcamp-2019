@@ -8,6 +8,8 @@ import { ValueTransformer } from "@angular/compiler/src/util";
 })
 export class ListComponent {
 
+    counterClick: number = 0;
+
     constructor(){
         let value = new Data();
         value._nama = "Dimas Maryanto";
@@ -25,4 +27,9 @@ export class ListComponent {
     }
 
     list: Array<Data> = [];
+
+    clickedHandler(event: any){
+        this.counterClick++;
+        console.log(event);
+    }
 }
