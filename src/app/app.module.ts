@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -10,6 +11,20 @@ import { CellComponent } from './list/cell/cell.component';
 import { CompAComponent } from './sample-service/comp-a/comp-a.component';
 import { CompBComponent } from './sample-service/comp-b/comp-b.component';
 import { DataMahasiswaService } from './sample-service/data-mahasiswa.service';
+import { SampleServiceComponent } from './sample-service/sample-service.component';
+
+const appRoutes: Routes = [
+  { path: 'form', 
+    component: FormReactiveComponent 
+  },
+  { path: 'list',  
+      component: ListComponent 
+  },
+  {
+    path: 'sample-service',
+    component: SampleServiceComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -19,11 +34,13 @@ import { DataMahasiswaService } from './sample-service/data-mahasiswa.service';
     PembelianComponent,
     CellComponent,
     CompAComponent,
-    CompBComponent
+    CompBComponent,
+    SampleServiceComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes, {})
   ],
   providers: [DataMahasiswaService],
   bootstrap: [AppComponent]
