@@ -18,4 +18,8 @@ export class KategoriBukuService {
   save(kategori: KategoriBuku){
     return this._httpClient.post('/api/kategori/buku/', kategori, {observe: 'response'});
   }
+
+  update(kategori: KategoriBuku){
+    return this._httpClient.put('/api/kategori/buku/', kategori, {observe: 'response'});
+  }
 }

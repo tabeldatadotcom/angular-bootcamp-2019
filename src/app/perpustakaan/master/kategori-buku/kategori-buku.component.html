@@ -16,6 +16,8 @@
       <td>{{ data.keterangan }}</td>
       <td>
         <a [routerLink]="['/', 'perpustakaan', 'master','kategori', 'buku', 'detail', data.id]">Detail</a>
+        &nbsp;
+        <a [routerLink]="['/', 'perpustakaan', 'master','kategori', 'buku', 'update', data.id]">Update</a>
       </td>
     </tr>
   </tbody>

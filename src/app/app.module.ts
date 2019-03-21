@@ -17,6 +17,7 @@ import { KategoriBukuComponent } from './perpustakaan/master/kategori-buku/kateg
 import { KategoriBukuService } from './perpustakaan/master/kategori-buku/kategori-buku.service';
 import { NewKategoriBukuComponent } from './perpustakaan/master/kategori-buku/new-kategori-buku/new-kategori-buku.component';
 import { DetailKategoriBukuComponent } from './perpustakaan/master/kategori-buku/detail-kategori-buku/detail-kategori-buku.component';
+import { UpdateKategoriBukuComponent } from './perpustakaan/master/kategori-buku/update-kategori-buku/update-kategori-buku.component';
 
 const appRoutes: Routes = [
   {
@@ -38,6 +39,10 @@ const appRoutes: Routes = [
   {
     path: 'perpustakaan/master/kategori/buku/detail/:kode',
     component: DetailKategoriBukuComponent
+  },
+  {
+    path: 'perpustakaan/master/kategori/buku/update/:kode',
+    component: UpdateKategoriBukuComponent
   }
 ];
 
@@ -53,7 +58,8 @@ const appRoutes: Routes = [
     SampleServiceComponent,
     KategoriBukuComponent,
     NewKategoriBukuComponent,
-    DetailKategoriBukuComponent
+    DetailKategoriBukuComponent,
+    UpdateKategoriBukuComponent
   ],
   imports: [
     BrowserModule,
