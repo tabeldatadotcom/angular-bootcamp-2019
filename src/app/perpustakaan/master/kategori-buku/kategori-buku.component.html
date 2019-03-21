@@ -14,7 +14,9 @@
       <td>{{ data.id }}</td>
       <td>{{ data.nama }}</td>
       <td>{{ data.keterangan }}</td>
-      <td><button type="button" (click)="detailData(data.id)">Detail</button></td>
+      <td>
+        <a [routerLink]="['/', 'perpustakaan', 'master','kategori', 'buku', 'detail', data.id]">Detail</a>
+      </td>
     </tr>
   </tbody>
 </table>

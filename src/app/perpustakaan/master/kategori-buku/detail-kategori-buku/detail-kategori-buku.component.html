@@ -1,0 +1,14 @@
+<form [formGroup]="formGroup" (submit)="send($event)">
+  <div>
+    <label for="id">Kode</label>
+    <input type="text" name="id" id="id" formControlName="id" readonly>
+  </div>
+  <div>
+    <label for="nama">Nama</label>
+    <input type="text" name="nama" id="nama" formControlName="name" readonly>
+  </div>
+  <div>
+    <label for="keterangan">Keterangan</label>
+    <textarea name="keterangan" id="keterangan" cols="30" rows="10" formControlName="keterangan" readonly></textarea>
+  </div>
+</form>

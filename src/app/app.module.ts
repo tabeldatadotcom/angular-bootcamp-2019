@@ -16,6 +16,7 @@ import { SampleServiceComponent } from './sample-service/sample-service.componen
 import { KategoriBukuComponent } from './perpustakaan/master/kategori-buku/kategori-buku.component';
 import { KategoriBukuService } from './perpustakaan/master/kategori-buku/kategori-buku.service';
 import { NewKategoriBukuComponent } from './perpustakaan/master/kategori-buku/new-kategori-buku/new-kategori-buku.component';
+import { DetailKategoriBukuComponent } from './perpustakaan/master/kategori-buku/detail-kategori-buku/detail-kategori-buku.component';
 
 const appRoutes: Routes = [
   {
@@ -33,6 +34,10 @@ const appRoutes: Routes = [
   {
     path: 'perpustakaan/master/kategori/buku',
     component: KategoriBukuComponent
+  },
+  {
+    path: 'perpustakaan/master/kategori/buku/detail/:kode',
+    component: DetailKategoriBukuComponent
   }
 ];
 
@@ -47,7 +52,8 @@ const appRoutes: Routes = [
     CompBComponent,
     SampleServiceComponent,
     KategoriBukuComponent,
-    NewKategoriBukuComponent
+    NewKategoriBukuComponent,
+    DetailKategoriBukuComponent
   ],
   imports: [
     BrowserModule,
