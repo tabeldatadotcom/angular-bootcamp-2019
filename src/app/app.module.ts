@@ -15,6 +15,7 @@ import { DataMahasiswaService } from './sample-service/data-mahasiswa.service';
 import { SampleServiceComponent } from './sample-service/sample-service.component';
 import { KategoriBukuComponent } from './perpustakaan/master/kategori-buku/kategori-buku.component';
 import { KategoriBukuService } from './perpustakaan/master/kategori-buku/kategori-buku.service';
+import { NewKategoriBukuComponent } from './perpustakaan/master/kategori-buku/new-kategori-buku/new-kategori-buku.component';
 
 const appRoutes: Routes = [
   {
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     CompAComponent,
     CompBComponent,
     SampleServiceComponent,
-    KategoriBukuComponent
+    KategoriBukuComponent,
+    NewKategoriBukuComponent
   ],
   imports: [
     BrowserModule,
