@@ -17,8 +17,24 @@ export class KategoriBukuComponent implements OnInit {
     this._kategoriBukuService.findAll().subscribe(
       (response: any) => {
         this.list = response;
+        console.log(response);
       }, error => {
         console.error(error);
+      }
+    )
+  }
+
+  detailData(id: string){
+    this._kategoriBukuService.findById(id).subscribe(
+      (repsonse: any) =>{
+        console.log(repsonse);
+        if(repsonse.status == 200){
+          console.log(repsonse.body);
+        }else {
+          alert(`data kategori buku dengan ${id} tidak ditemukan!`);
+        }
+      }, error =>{
+        console.log(error);
       }
     )
   }

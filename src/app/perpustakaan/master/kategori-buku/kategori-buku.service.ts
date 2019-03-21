@@ -9,4 +9,8 @@ export class KategoriBukuService {
   findAll(){
     return this._httpClient.get('/api/kategori/buku/list');
   }
+
+  findById(id: string){
+    return this._httpClient.get(`/api/kategori/buku/${id}`, {observe: 'response'});
+  }
 }
