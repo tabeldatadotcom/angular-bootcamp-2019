@@ -18,6 +18,7 @@
         <a [routerLink]="['/', 'perpustakaan', 'master','kategori', 'buku', 'detail', data.id]">Detail</a>
         &nbsp;
         <a [routerLink]="['/', 'perpustakaan', 'master','kategori', 'buku', 'update', data.id]">Update</a>
+        <button type="button" (click)="removeById(data.id)">Hapus</button>
       </td>
     </tr>
   </tbody>

@@ -39,4 +39,12 @@ export class KategoriBukuComponent implements OnInit {
     )
   }
 
+  removeById(data: string){
+    this._kategoriBukuService.delete(data).subscribe((resp : any) => {
+      if(resp.status == 200){
+        this.ngOnInit();
+      }
+    })
+  }
+
 }

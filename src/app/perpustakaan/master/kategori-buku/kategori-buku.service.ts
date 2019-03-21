@@ -22,4 +22,8 @@ export class KategoriBukuService {
   update(kategori: KategoriBuku){
     return this._httpClient.put('/api/kategori/buku/', kategori, {observe: 'response'});
   }
+
+  delete(id: string){
+    return this._httpClient.delete(`/api/kategori/buku/${id}`, {observe: 'response'});
+  }
 }
