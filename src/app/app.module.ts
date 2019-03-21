@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -12,6 +13,8 @@ import { CompAComponent } from './sample-service/comp-a/comp-a.component';
 import { CompBComponent } from './sample-service/comp-b/comp-b.component';
 import { DataMahasiswaService } from './sample-service/data-mahasiswa.service';
 import { SampleServiceComponent } from './sample-service/sample-service.component';
+import { KategoriBukuComponent } from './perpustakaan/master/kategori-buku/kategori-buku.component';
+import { KategoriBukuService } from './perpustakaan/master/kategori-buku/kategori-buku.service';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +28,10 @@ const appRoutes: Routes = [
   {
     path: 'sample-service',
     component: SampleServiceComponent
+  },
+  {
+    path: 'perpustakaan/master/kategori/buku',
+    component: KategoriBukuComponent
   }
 ];
 
@@ -37,14 +44,16 @@ const appRoutes: Routes = [
     CellComponent,
     CompAComponent,
     CompBComponent,
-    SampleServiceComponent
+    SampleServiceComponent,
+    KategoriBukuComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {})
+    RouterModule.forRoot(appRoutes, {}),
+    HttpClientModule
   ],
-  providers: [DataMahasiswaService],
+  providers: [DataMahasiswaService, KategoriBukuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
