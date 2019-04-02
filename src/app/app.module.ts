@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
 import {ListComponent} from './list/list.component';
@@ -20,6 +20,9 @@ import {DetailKategoriBukuComponent} from './perpustakaan/master/kategori-buku/d
 import {UpdateKategoriBukuComponent} from './perpustakaan/master/kategori-buku/update-kategori-buku/update-kategori-buku.component';
 import {LoginComponent} from './perpustakaan/login/login.component';
 import {TypeaheadModule} from 'ngx-bootstrap';
+import {AuthGuard} from './perpustakaan/auth.guard';
+import {HomeComponent} from './perpustakaan/home/home.component';
+import {HttpInterceptorApi} from './perpustakaan/http.interceptor.api';
 
 const appRoutes: Routes = [
   {
@@ -39,17 +42,25 @@ const appRoutes: Routes = [
     component: SampleServiceComponent
   },
   {
-    path: 'perpustakaan/master/kategori/buku',
-    component: KategoriBukuComponent
+    path: 'perpustakaan/master',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'kategori/buku',
+        component: KategoriBukuComponent
+      },
+      {
+        path: 'kategori/buku/detail/:kode',
+        component: DetailKategoriBukuComponent
+      },
+      {
+        path: 'kategori/buku/update/:kode',
+        component: UpdateKategoriBukuComponent
+      }
+    ]
   },
-  {
-    path: 'perpustakaan/master/kategori/buku/detail/:kode',
-    component: DetailKategoriBukuComponent
-  },
-  {
-    path: 'perpustakaan/master/kategori/buku/update/:kode',
-    component: UpdateKategoriBukuComponent
-  }
+
 ];
 
 @NgModule({
@@ -66,7 +77,8 @@ const appRoutes: Routes = [
     NewKategoriBukuComponent,
     DetailKategoriBukuComponent,
     UpdateKategoriBukuComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +87,12 @@ const appRoutes: Routes = [
     HttpClientModule,
     TypeaheadModule
   ],
-  providers: [DataMahasiswaService, KategoriBukuService],
+  providers: [DataMahasiswaService, KategoriBukuService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorApi,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -29,6 +29,10 @@ export class LoginService {
       });
   }
 
+  getToken(): string {
+    return localStorage.getItem('accessToken');
+  }
+
   storeToken(token: string) {
     localStorage.setItem('accessToken', token);
   }
