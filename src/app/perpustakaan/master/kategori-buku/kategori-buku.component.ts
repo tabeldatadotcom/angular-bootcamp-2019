@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { KategoriBuku } from './kategory-buku.model';
-import { KategoriBukuService } from './kategori-buku.service';
+import {Component, OnInit} from '@angular/core';
+import {KategoriBuku} from './kategory-buku.model';
+import {KategoriBukuService} from './kategori-buku.service';
+import {LoginService} from '../../login.service';
 
 @Component({
   selector: 'app-kategori-buku',
@@ -11,7 +12,8 @@ export class KategoriBukuComponent implements OnInit {
 
   list: Array<KategoriBuku> = [];
 
-  constructor(private _kategoriBukuService: KategoriBukuService) { }
+  constructor(private _kategoriBukuService: KategoriBukuService, private loginService: LoginService) {
+  }
 
   ngOnInit() {
     this._kategoriBukuService.findAll().subscribe(
@@ -21,30 +23,33 @@ export class KategoriBukuComponent implements OnInit {
       }, error => {
         console.error(error);
       }
-    )
+    );
   }
 
-  detailData(id: string){
+  detailData(id: string) {
     this._kategoriBukuService.findById(id).subscribe(
-      (repsonse: any) =>{
+      (repsonse: any) => {
         console.log(repsonse);
-        if(repsonse.status == 200){
+        if (repsonse.status == 200) {
           console.log(repsonse.body);
-        }else {
+        } else {
           alert(`data kategori buku dengan ${id} tidak ditemukan!`);
         }
-      }, error =>{
+      }, error => {
         console.log(error);
       }
-    )
+    );
   }
 
-  removeById(data: string){
-    this._kategoriBukuService.delete(data).subscribe((resp : any) => {
-      if(resp.status == 200){
+  removeById(data: string) {
+    this._kategoriBukuService.delete(data).subscribe((resp: any) => {
+      if (resp.status == 200) {
         this.ngOnInit();
       }
-    })
+    });
   }
 
+  checkLogin() {
+    console.log('udah login: ' + this.loginService.isAutenticated());
+  }
 }

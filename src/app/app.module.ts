@@ -19,6 +19,7 @@ import {NewKategoriBukuComponent} from './perpustakaan/master/kategori-buku/new-
 import {DetailKategoriBukuComponent} from './perpustakaan/master/kategori-buku/detail-kategori-buku/detail-kategori-buku.component';
 import {UpdateKategoriBukuComponent} from './perpustakaan/master/kategori-buku/update-kategori-buku/update-kategori-buku.component';
 import {LoginComponent} from './perpustakaan/login/login.component';
+import {TypeaheadModule} from 'ngx-bootstrap';
 
 const appRoutes: Routes = [
   {
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {}),
-    HttpClientModule
+    HttpClientModule,
+    TypeaheadModule
   ],
   providers: [DataMahasiswaService, KategoriBukuService],
   bootstrap: [AppComponent]
