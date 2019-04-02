@@ -20,7 +20,6 @@ export class HttpInterceptorApi implements HttpInterceptor {
       }
     });
     return next.handle(req);
-    return undefined;
   }
 
 }
