@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class DataMahasiswaService {
@@ -6,15 +6,15 @@ export class DataMahasiswaService {
   private _list: string[] = [];
   private data: string;
 
-  constructor() { 
+  constructor() {
     this._list = ['001', '002', '003'];
   }
 
-  get list(): Array<string>{
+  get list(): Array<string> {
     return this._list;
   }
 
- addItem(data: string){
+  addItem(data: string) {
     this._list.push(data);
   }
 
